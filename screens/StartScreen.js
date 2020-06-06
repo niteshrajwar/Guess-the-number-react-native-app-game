@@ -4,6 +4,9 @@ import Card from '../Components/Card';
 import Themes from '../Constants/themes';
 import Input from '../Components/Input'
 import NumberContainer from '../Components/NumberContainer';
+import BodyText from '../Components/BodyText';
+import TitleText from '../Components/TitleText';
+import CustomButton from '../Components/CustomButton';
 const StartScreen = props => {
   const [userInput, setUserInput] = useState('');
   const [confirmed,setConfirmed] = useState(false);
@@ -32,16 +35,16 @@ const StartScreen = props => {
   <Card style={styles.summaryContainer}>
   <Text>You have Selected</Text>
   <NumberContainer >{selectedNumber}</NumberContainer>
-  <Button title="Start Game" onPress={()=>props.onStartGame(selectedNumber)} />
+  <CustomButton  onClick={()=>props.onStartGame(selectedNumber)}><Text>Start Game</Text></CustomButton>
       </Card>
   }
   return (
     <TouchableWithoutFeedback onPress={()=>Keyboard.dismiss()}>
     <View style={styles.screen}>
-      <Text style={styles.title}>Start New Game !</Text>
+      <TitleText >Start New Game !</TitleText>
       <Card>
         <View style={styles.inputContainer}>
-          <Text>Select a Number</Text>
+          <BodyText>Select a Number</BodyText>
           <Input
            style={styles.inputBox}
             keyboardType="number-pad"
@@ -75,7 +78,8 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 20,
-    marginVertical: 10
+    marginVertical: 10,
+    fontFamily:'sans-bold'
   },
   button: {
     width: 90
@@ -85,7 +89,8 @@ const styles = StyleSheet.create({
     maxWidth: '80%',
     alignItems: "center",
     justifyContent: "space-between",
-    height: 120
+    height: 120,
+    fontFamily:'sans-regular'
   },
   inputBox: {
     width: 50,
